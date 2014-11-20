@@ -18,6 +18,10 @@ CONFIG="/etc/collect-config.conf"
 METAFILE=".collect-config.meta"
 VERSION='$Revision: 1.13 $'
 
+RCSREPO=${RCSREPO:=RCS}
+CIOPT="-q -u"
+RCSOPT=""
+
 WARN=1
 ERR=2
 
