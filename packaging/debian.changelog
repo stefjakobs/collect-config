@@ -1,0 +1,38 @@
+collect-config (1.12-0) stable; urgency=low
+
+  * implement: -v | --version: print version
+  * implement: -d -R # : compare the head with a named revision
+
+ -- Stefan Jakobs <projects AT localside.net>  Wed, 12 Dec 2012 00:49:51 +0100
+
+collect-config (1.11-0) stable; urgency=low
+
+  * implement: -d | --diff: get a diff of the latest repo with the system 
+
+ -- Stefan Jakobs <projects AT localside.net>  Tue, 04 Dec 2012 00:49:51 +0100
+
+collect-config (1.10-0) stable; urgency=low
+
+  * add options to run each function separately
+  * set and get the current revision
+
+ -- Stefan Jakobs <projects AT localside.net>  Thu, 29 Nov 2012 00:49:51 +0100
+
+collect-config (1.9-0) stable; urgency=low
+
+  * collect-config.sh can now list and remove orphaned files and directories.
+
+ -- Stefan Jakobs <projects AT localside.net>  Thu, 29 Nov 2012 00:49:51 +0100
+
+collect-config (1.8-3) stable; urgency=low
+
+  * Update Makefile and Documentation.
+
+ -- Stefan Jakobs <projects AT localside.net>  Tue, 23 Oct 2012 00:49:51 +0100
+
+collect-config (1.7-1) stable; urgency=low
+
+  * Initial release.
+
+ -- Stefan Jakobs <projects AT localside.net>  Tue, 02 Oct 2012 00:49:51 +0100
+

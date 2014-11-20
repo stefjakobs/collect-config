@@ -1,0 +1,11 @@
+Source: collect-config
+Section: System/Management
+Priority: optional
+Maintainer: Stefan Jakobs <projects AT localside.net>
+Build-Depends: debhelper (>= 4.1.16)
+
+Package: collect-config
+Architecture: any
+Depends: ${shlibs:Depends}, bash (>= 4.0), rcs, bc
+Description: Configuration collector
+ Copy all config files to a fix location and check them in.

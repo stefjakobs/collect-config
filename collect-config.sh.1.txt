@@ -1,0 +1,98 @@
+NAME
+  collect-config.sh - keep trach of configuration file changes
+SYNOPSIS
+  collect-config.sh [-l|--list-orphans] [-r|--remove-orphans]
+                    [-d|--diff [-R|--revision <rev>]]
+                    [--collect-config] [--check-permissions]
+                    [--check-packages] [--check-links]
+                    [-?|-h|--help] [-v|--version]
+DESCRIPTION
+  collect-config.sh uses a configuration file in Bash Syntax. This
+  file helps to keep track of the configuration which differs from
+  the system's default. Once a day all files which are part of
+  COLLECTION will be copied and checked in to the repository. This
+  makes it possible to keep track of changes.
+  Collect-config can also maintain a list of installed packages. It
+  will warn when a package is not installed or differs from the named
+  version. With the PACKAGE list it is easy to install all needed
+  packages if a reinstall is requiered.
+  Collect-config can also check for soft- and hardlinks as well as
+  the right permissions on files.
+  If called without any arguments collect-config.sh will copy and
+  check in all COLLECTIONs. It will check if all PACKAGEs are installed,
+  it will check if all SOFTLINKs and HARDLINKs exists and it will
+  check if all PERMISSIONs and ownership are set as configured.
+
+OPTIONS
+  -l|--list-orphans    list all files in the repository which are not
+                       part of a COLLECTION
+  -r|--remove-orphans  remove all files in the repository which are not
+                       part of a COLLECTION
+  -d|--diff            compare the system configuration with the
+                       repository configuration
+  -R|--revision=#      compare system with repository revision #
+  --collect-config     copy and check in configuration files only
+  --check-permissions  check permissions and ownership only
+  --check-packages     check installed packages only
+  --check-links        check if hard- and softlinks exitsts, only
+  -?|-h|--help         emit short usage message and bail out
+  -v|--version         ouput version information and exit
+
+FILES
+  /usr/bin/collect-config.sh      - bash script
+  /etc/collect-config.conf        - configuration file
+  /etc/profile.d/functions.in.sh  - functions used by collect-config.sh
+  /usr/share/doc/packages/collect-config/README  - some further explanations
+
+CONFIGURATION
+  Set the options in collect-config.conf according to your needs.
+
+  CONFDIR      - where to store the COLLECTION (== repository)
+  RCSREPO      - the directory name rcs uses to save its *,v files
+  COLLECTION   - configuration files
+  PACKAGE      - package with an optinal version string
+  SOFTLINK     - softlink which must exist
+  HARDLINK     - hardlink which must exist
+  PERMISSION   - permission and ownership of a file
+
+EXAMPLE
+  Main configuration file (collect-config.conf) example:
+
+  CONFIDR=/opt/config
+
+  COLLECTION[logrotate]="/etc/logrotate.d/log-* /etc/logrotate.d/syslog"
+
+  COLLECTION[sysconfig]="/etc/sysconfig/cron /etc/sysconfig/mail"
+
+  
+  PACKAGE[postfix]="2.9.5"
+
+  PACKAGE[lighttpd]=""
+
+
+  SOFTLINK[/usr/local/sbin/amavisd-nanny]="/usr/sbin/nanny /sbin/nanny"
+
+  PERMISSION[/srv/log/firewall]='2770:root:log'
+
+LICENSE
+  collect-config.sh is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program. If not, see http://www.gnu.org/licenses/.
+
+REPORTING BUGS
+  Report bugs to <projects@localside.net>
+
+AUTHORS
+  Stefan Jakobs
+
+  This manual page was written by Stefan Jakobs <projects@localside.net>
+
